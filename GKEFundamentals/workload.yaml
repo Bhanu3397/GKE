@@ -1,0 +1,33 @@
+---
+export my_zone=us-central1-a
+export my_cluster=standard-cluster-1
+gcloud container clusters create $my_cluster --num-nodes 3 --zone $my_zone --enable-ip-alias
+gcloud container clusters resize $my_cluster --zone $my_zone --num-nodes=4 
+# When issuing cluster commands, you typically must specify both the cluster name and the cluster location (region or zone).
+gcloud container clusters get-credentials $my_cluster --zone $my_zone
+# To create a kubeconfig file with the credentials of the current user (to allow authentication) and provide the endpoint details for a specific cluster (to allow communicating with that cluster through the kubectl command-line tool).
+nano ~/.kube/config #(or cat)
+kubectl config view #print out the content of the kubeconfig file
+kubectl cluster-info #print out the cluster information for the active context
+kubectl config current-context #print out the active context
+#print out some details for all the cluster contexts in the kubeconfig file
+kubectl config get-contexts
+# execute the following command to change the active context
+kubectl config use-context gke_${GOOGLE_CLOUD_PROJECT}_us-central1-a_standard-cluster-1
+kubectl top nodes #view the resource usage across the nodes of the cluster
+source <(kubectl completion bash) #to enable bash autocompletion for kubectl
+
+kubectl create deployment --image nginx nginx-1 # to deploy nginx as a Pod named nginx-1
+kubectl get pods
+# O/P
+# NAME                       READY     STATUS    RESTARTS   AGE
+# nginx-1-74c7bbdb84-nvwsc   1/1       Running   0          9s
+export my_nginx_pod=nginx-1-74c7bbdb84-nvwsc
+kubectl describe pod $my_nginx_pod # to view the complete details of the Pod you just created
+
+kubectl cp ~/test.html $my_nginx_pod:/usr/share/nginx/html/test.html #  to place the file into the appropriate location within the nginx container in the nginx Pod to be served statically
+
+kubectl expose pod $my_nginx_pod --port 80 --type LoadBalancer
+kubectl get services
+
+kubectl port-forward new-nginx 10081:80

@@ -1,0 +1,24 @@
+(https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+(https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+parallel jobs and single time jobs can be created in k8s.
+parallel jobs are specified in spec.parallisim 
+parallel jobs are two types one is parallel and parallel job with work queue.
+
+Cronjobs:-
+Cron job is a Kubernetes object that creates jobs in repeatable manner to a defined schedule.
+
+Suppose you have a Job in which each Pod performs work drawn from a work queue. How should this Job's manifest be configured?
+Specify a parallelism value and leave spec.completions unset
+
+What happens if a node fails while a Job is executing on that node?
+Kubernetes will restart the Job on a node that is still running.
+
+CronJobs use the required schedule field, which accepts a time in the Unix standard crontab format. All CronJob times are in UTC:
+
+The first value indicates the minute (between 0 and 59).
+The second value indicates the hour (between 0 and 23).
+The third value indicates the day of the month (between 1 and 31).
+The fourth value indicates the month (between 1 and 12).
+The fifth value indicates the day of the week (between 0 and 6).
+The schedule field also accepts * and ? as wildcard values. Combining / with ranges specifies that the task should repeat at a regular interval.
+In the example, */1 * * * * indicates that the task should repeat every minute of every day of every month.

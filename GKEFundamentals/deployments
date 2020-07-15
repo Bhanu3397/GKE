@@ -1,0 +1,19 @@
+What is the relationship between Deployments and ReplicaSets?
+A Deployment configures a ReplicaSet controller to create and maintain a specific version of the Pods that the Deployment specifies.
+Deployments are good for stateless applications.
+
+Blue-Green Deployment: Where all traffic moved to new versions instantaneously.
+Canery Deployment: traffic moved gradually towards new versions
+
+gcloud container clusters get-credentials $my_cluster --zone $my_zone(to get credentials)
+kubectl get deployments
+kubectl scale --replicas=3 deployment nginx-deployment
+kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1 --record (upgrading image version)
+kubectl rollout status deployment.v1.apps/nginx-deployment
+kubectl rollout history deployment nginx-deployment
+kubectl rollout undo deployments nginx-deployment
+kubectl rollout history deployment nginx-deployment
+kubectl rollout history deployment/nginx-deployment --revision=3
+kubectl apply -f ./service-nginx.yaml
+kubectl get service nginx
+(https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)

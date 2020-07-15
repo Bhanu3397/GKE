@@ -1,0 +1,50 @@
+if autoscaling decreases the size of a node pool, any Pods on deleted nodes that aren't managed by a replication controller will be lost.
+False
+
+True or false: if you increase the size of a node pool, existing Pods will be moved to newer nodes.? False
+
+if you manually decrease the size of a node pool, any Pods on deleted nodes will be restarted on other nodes.
+False
+
+export my_zone=us-central1-a
+export my_cluster=standard-cluster-1
+
+Create a VPC-native Kubernetes cluster.
+gcloud container clusters create $my_cluster \
+   --num-nodes 2 --enable-ip-alias --zone $my_zone
+
+Configure access to your cluster for kubectl:
+gcloud container clusters get-credentials $my_cluster --zone $my_zone
+
+To create a deployment from this file, execute the following command:
+kubectl create -f web.yaml --save-config
+
+Create a service resource of type NodePort on port 8080 for the web deployment.
+kubectl expose deployment web --target-port=8080 --type=NodePort
+
+kubectl get service web
+
+To configure your sample application for autoscaling 
+kubectl autoscale deployment web --max 4 --min 1 --cpu-percent 1
+
+To get the list of HorizontalPodAutoscaler resources, execute the following command:
+kubectl get hpa
+
+kubectl describe horizontalpodautoscaler web
+
+To view the configuration of HorizontalPodAutoscaler in YAML form, execute the following command:
+kubectl get horizontalpodautoscaler web -o yaml
+
+To list only the nodes with the temp=true label, execute the following command:
+kubectl get nodes -l temp=true
+
+To prevent the scheduler from running a Pod on the temporary nodes, you add a taint to each of the nodes in the temp pool.
+Taints are implemented as a key-value pair with an effect (such as NoExecute) that determines whether Pods can run on a certain node. 
+
+kubectl taint node -l temp=true nodetype=preemptible:NoExecute
+
+Controlling Pods:-
+Node Selecter does this job.
+
+Affinity and anti-affinity:-
+Node affinity helps controlling pods.

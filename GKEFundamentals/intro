@@ -1,0 +1,34 @@
+Kubernetes Engine	A managed environment for deploying containerized applications
+Compute Engine	A managed environment for deploying virtual machines
+App Engine	A managed serverless platform for deploying applications
+Cloud Functions	A managed serverless platform for deploying event-driven functions
+
+Cloud Shell provides the following features and capabilities:
+Temporary Compute Engine VM
+Command-line access to the instance through a browser
+5 GB of persistent disk storage ($HOME dir)
+Preinstalled Cloud SDK and other tools
+gcloud: for working with Compute Engine, Google Kubernetes Engine (GKE) and many GCP services
+gsutil: for working with Cloud Storage
+kubectl: for working with GKE and Kubernetes
+bq: for working with BigQuery
+Language support for Java, Go, Python, Node.js, PHP, and Ruby
+Web preview functionality
+Built-in authorization for access to resources and instances
+
+After 1 hour of inactivity, the Cloud Shell instance is recycled. Only the /home directory persists. 
+Any changes made to the system configuration, including environment variables, are lost between sessions.
+
+gcloud: for working with Compute Engine, Google Kubernetes Engine (GKE) and many GCP services
+gsutil: for working with Cloud Storage
+kubectl: for working with GKE and Kubernetes
+bq: for working with BigQuery
+gsutil acl
+gcloud config list
+gsutil iam ch allUsers - bucket readable by everyone, including unauthenticated users.
+
+What is significant about the topmost layer in a container? 
+An application running in a container can only modify the topmost layer.
+The topmost layer's contents are lost when the container is no longer running.
+
+What is the name for the computers in a Kubernetes cluster that can run your workloads?:- Nodes

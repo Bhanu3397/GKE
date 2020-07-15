@@ -1,0 +1,16 @@
+What is most common reason for a Pod to report CrashLoopBackOff as its state?
+The Pod's configuration is not correct.
+Which command allows you to run a command inside a Pod? Kubectl exec
+
+For GKE, authentication is typically handled with OAuth2 tokens and can be managed through Cloud Identity and Access Management across the project as a whole and, optionally, through role-based access control which can be defined and configured within each cluster.
+
+reason shown is ImagePullBackOff - The container image failed to download.
+
+You want to use a kubectl get command to identify which Node each Pod is running on. Which command do you need to execute?
+kubectl get pods -o=wide
+
+Which command can you use to look at the error messages from containers in a Pod that are failing to run successfully?
+Kubectl logs
+
+What command can you use to identify which containers in a Pod are successfully running, and which are failing or having issues?
+kubectl describe pod

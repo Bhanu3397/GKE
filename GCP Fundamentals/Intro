@@ -1,0 +1,105 @@
+Fault tolerance:- is the property that enables a system to continue operating properly in the event of the failure of (or one or more faults within) some of its components.
+
+Services and APIs are enabled on a per-project basis.
+Your company has two GCP projects, and you want them to share policies. What is the less error-prone way to set this up?
+Place both projects into a folder, and define the policies on the folder.
+
+Can IAM policies that are implemented higher in the resource hierarchy take away access that is granted by lower-level policies?
+No
+
+Order these IAM role types from broadest to finest-grained?
+Primitive roles, predefined roles, custom roles
+
+Folders require an organization node. Organization nodes are optional, but if you want to create folders, having one is mandatory.
+Organization nodes let you apply policies centrally. Organization nodes are optional, but if you want to define policies that apply to all the projects in your organization, having one is mandatory.
+
+Policies are a union of those applied on resource itself and those inherited from higher levels in the hierarchy. If a parent policy is less restrictive, it overrides a more restrictive policy applied on the resource. 
+If a parent policy is more restrictive, it does not override a less restrictive policy applied on the resource. Therefore, access granted at a higher level in the hierarchy cannot be taken away by policies applied at a lower level in the hierarchy.
+All Google Cloud Platform resources are associated with a project.
+Service accounts are used to provide:-
+A way to restrict the actions a resource (such as a VM) can perform
+A way to allow users to act with service account permissions
+Authentication between Google Cloud Platform services
+
+Primitive roles affect all resources in a GCP project. Predefined roles apply to a particular service in a project
+
+VPC subnets can span the zones that make up a region. This is beneficial because your solutions can incorporate fault tolerance without complicating your network topology.
+You can dynamically increase the size of a subnet in a custom network by expanding the range of IP addresses allocated to it. Doing that doesn’t affect already configured VMs.
+
+GCP automatically supplies Domain Name Service (DNS) resolution for the internal IP addresses of VM instances.
+
+With global Cloud Load Balancing, your application presents a single front-end to the world.
+Google VPC networks and subnets:- Networks are global and subnets are regionl
+An application running in a Compute Engine virtual machine needs high-performance scratch space. Which type of storage meets this need?
+Local SSD
+VPC routers and firewalls are built in feature offered by Google.
+Dedicated interconnect are included in SLA's.
+
+Cloud Storage is object storage rather than file storage. Compute Engine virtual machines use Persistent Disk storage to contain their file systems.
+
+NoSQL databases such as Cloud Bigtable are suitable when all items in the database needn't have their integrity checked by a database schema.
+Why not? Maybe you want your database items to contain variable fields, or maybe because you simply want your application to manage database integrity.
+
+Some developers think of Cloud Bigtable as a persistent hashtable. What does that mean?
+Each item in the database can be sparsely populated, and is looked up with a single key.
+
+Cloud Spanner can scale to petabyte database sizes, while Cloud SQL is limited by the size of the database instances you choose. At the time this quiz was created, the maximum was 10,230 GB.
+Each Cloud SQL database is configured at creation time for either MySQL or PostgreSQL. Cloud Spanner uses ANSI SQL 2011 with extensions.
+Cloud Spanner offers transactional consistency at global scale.
+
+Cloud Datastore databases can span App Engine and Compute Engine applications.
+Cloud Datastore and Cloud Bigtable alike:-
+They are both NoSQL databases.
+They are both highly scalable.
+
+Containers start much faster than virtual machines and use fewer resources, because each container does not have its own instance of the operating system.
+In Kubernetes, a group of one or more containers is called a pod. Containers in a pod are deployed together. They are started, stopped, and replicated as a group.
+The simplest workload that Kubernetes can deploy is a pod that consists only of a single container.
+
+A Kubernetes cluster is a group of machines where Kubernetes can schedule containers in pods. The machines in the cluster are called “nodes.”
+
+Because the resources used to build Kubernetes Engine clusters come from Compute Engine, Kubernetes Engine gets to take advantage of Compute Engine’s and Google VPC’s capabilities.
+
+Kubernetes allows you to manage container clusters in multiple cloud providers. Yes
+
+App Engine is especially suited for applications where the workload is highly variable, like a web application. App Engine will scale your application automatically in response to the amount of traffic it receives.
+App Engine offers NoSQL databases, in-memory caching, load balancing, health checks, logging, and user authentication to applications running in it.
+App Engine Flexible Environment applications let their owners control the geographic region where they run.
+App Engine Flexible Environment lets you ssh into the virtual machines in which your application runs.
+App Engine Standard Environment supports Java, Python, PHP, and Go, but in the Flexible Environment, you upload your own runtime to run code in a language of your choice.
+App Engine manages the hardware and networking infrastructure required to run your code.
+App Engine Standard Environment :- Google provides and maintains runtime binaries
+
+advantage of putting event-driven components of your application into Cloud Functions:-
+Your code executes whenever an event triggers it, no matter whether it happens rarely or many times per second. That means you don't have to provision compute resources to handle these operations.
+
+Cloud Deployment Manager v2 API
+Cloud Runtime Configuration API
+Cloud Monitoring API
+
+Why might a GCP customer choose to use Cloud Source Repositories?
+They don't want to host their own git instance, and they want to integrate with IAM permissions.
+Why might a GCP customer choose to use Cloud Functions?
+Their application contains event-driven code that they don't want to have to provision compute resources for.
+Why might a GCP customer choose to use Deployment Manager?
+Deployment Manager is an infrastructure management system for GCP resources.
+You want to define alerts on your GCP resources, such as when health checks fail. Which is the best GCP product to use? Stackdriver Monitoring
+Stackdriver Logging lets you define metrics based on your logs.
+Stackdriver Logging lets you view logs from your applications, and filter and search on them.
+
+Name two use cases for Google Cloud Dataproc:-
+Migrate on-premises Hadoop jobs to the cloud
+Data mining and analysis in datasets of known size
+
+Name two use cases for Google Cloud Dataflow:-
+Extract, Transform, and Load (ETL)
+Orchestration
+
+Which statements are true about BigQuery?
+BigQuery lets you run fast SQL queries against large databases.
+BigQuery lets you run fast SQL queries against large databases.
+
+Name three use cases for Cloud Pub/Sub (Select 3 answers).
+Decoupling systems
+Analyzing streaming data
+Internet of Things applications
