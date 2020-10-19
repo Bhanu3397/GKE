@@ -1,0 +1,35 @@
+What is the primary difference between Secrets and ConfigMaps?
+Secrets are intended for use with security-sensitive data, such as private keys, while ConfigMaps are intended for use with general-purpose configuration information.
+
+Stateful sets:-
+Maintains persistent identy.
+Ordianal index, 
+How can I make a headless Service to bring together the Pods in a StatefulSet?
+By specifying None for the cluster IP in the Service definition
+
+ConfigMaps:-
+Decouple configuration from Pods
+https://kubernetes.io/docs/concepts/configuration/configmap/
+Question 1
+
+How frequently does the kubelet refresh the values of ConfigMaps mounted as volumes inside Pods?
+Roughly on the order of seconds or minutes
+
+How frequently does the kubelet refresh the values of ConfigMaps stored in environment variables inside Pods?
+Never
+
+Secrets:-
+https://kubernetes.io/docs/concepts/configuration/secret/
+
+GCP VS Self Hosted Storage:-
+
+What is the best way to use GCP managed services from an application running in GKE?
+Create a new service account, give it a Cloud IAM role with least privilege, store its credential in a Kubernetes secret, and use the credential in API calls to the service.
+
+If you need a SQL database that can scale beyond tens of terabytes, which of these GCP managed storage services should you consider?
+Cloud spnner
+
+
+If you need a SQL database that can scale beyond tens of terabytes, which of these GCP managed storage services should you consider?
+cloud big table
+

@@ -1,0 +1,21 @@
+Logging provides the forensic history on what a program, process or service has been doing.
+node /var/Log
+
+What is the role of Prometheus in a Kubernetes cluster?
+To allow applications to expose application-specific metrics
+
+How is monitoring in Kubernetes typically structured?
+By labels
+
+Setting up probes:-
+
+You are using a liveness probe to monitor the state of an application. You have recently updated the application and are concerned that the boot time is now longer than before. What value must you change in the YAML manifest file to ensure that the probe is not initiated before the application is ready?
+spec.containers.livenessProbe.initialDelaySeconds.
+
+You need to monitor specific applications running on your production GKE Clusters. How should you create a logical structure for your application that allows you to selectively monitor the application's components using Stackdriver? Choose all responses that are correct (2 correct responses).
+Add Labels to the Pods in Kubernetes that identify the applications.
+Filter the Stackdriver logs using the Kubernetes labels.
+
+You are troubleshooting an issue which happened in the last hour. You execute the command 'kubectl logs --since=3h demo-pod'. However, the events you are looking for do not appear in the output. What is the likely cause?
+The log file was greater than 100MB in size and it has been rotated.
+

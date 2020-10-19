@@ -1,0 +1,63 @@
+Authentication and authorization:- Normal users(normal users(IAM)), service accounts(managed by gke).
+Every namespace has a default service account.
+Cloud IAM(outside k8s clusters) and K8s RBAC(inside clusters)
+Open ID connect oauth2.0
+
+Cloud IAM:- who(identity/member), what(), which
+
+RBAC:- In GKE environments, RBAC extends Cloud IAM security, by offering control over Kubernetes resources within the cluster, supplementing the control provided directly by Cloud IAM, which allow you to control access of the GKE and cluster level. 
+There are three main elements to Kubernetes role-based access control: subjects, resources, and verbs. 
+With Kubernetes RBAC, you define what operations, the verbs, can be executed over which objects, the resources, by whom, the subjects. 
+A subject is a set of users or processes that can make requests to the Kubernetes API. 
+A resource is a set of Kubernetes API objects such as a pod, deployment, service or persistent volume. 
+A verb is a set of operations that can be performed on resources such as get, watch, create, and describe.
+These three elements can be connected by creating two types of RBAC API objects: Roles and RoleBindings.
+
+resources below that are namespace-scoped rather than cluster-scoped:- Pods, deployments, statefulsets.
+
+There are no deny rules in RBAC
+
+Kubernetes Control Plane Security:- 
+node secret
+
+Pod Security:-(pod security policy)
+securityContext, security #seccomp
+you can enable AppArmor which uses security profiles to restrict individual programs actions.
+
+Applying pod security policies:-
+pod security consists of an object and an admission controller. 
+The pod security policy object is a set of restrictions, requirements, and defaults, that are defined in the same way as a security context inside a pod, and can be used to control the same security features. For pod to be admitted to the cluster, it must fulfill all of the security conditions that are defined in the pod security policy. 
+
+
+Why might you want to define PodSecurityPolicies rather than Pod security contexts?
+PodSecurityPolicies can be manageably applied as a group to selected Pods.
+
+kubectl get podsecuritypolicy restricted-psp
+NAME             PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP    SUPGROUP   READONLYROOTFS   VOLUMES
+restricted-psp   false          RunAsAny   MustRunAsNonRoot   RunAsAny   RunAsAny   false            *
+
+IP Address rotation is a security processes:-You perform IP and credential rotation on your cluster. It is a secure practice to do so regularly to reduce credential lifetimes. While there are separate commands to rotate the serving IP and credentials, rotating credentials additionally rotates the IP as well.
+
+
+What security features can you control using Pod securityContexts? Choose all responses that are correct (2 correct responses).
+Enable AppArmor, which uses security profiles to restrict individual programs actions.
+Limit access to some Linux capabilities, for example to grant certain privileges to a process, but not all root user privileges.
+
+You have configured a new role using Kubernetes RBAC. You have supplied the action verbs you want for that role, and have added the users you require as subjects to the role. What is the next step you need to take in order to allow the users to perform those actions against the correct objects in your environment?
+Bind the RBAC role to the Kubernetes objects these users need to manage.
+
+Your organization is creating a new support team that will need to be able to view your Kubernetes Engine clusters and also access a number of Stackdriver features. You want to keep these users tightly controlled and need to make sure they only have the minimum level of access necessary to perform their jobs. What type of Cloud IAM role will you be using to assign these users the permissions they need?
+A custom Role
+
+When granting users the permissions to access and perform actions on GCP resources using Google Cloud IAM, what type of GCP object needs to be created in order grant roles to member accounts?
+Cloud IAM policy
+
+Which service can be used to synchronize enterprise user accounts to your GCP infrastructure, so that you can define Cloud IAM policies for them?
+Use Google Cloud Directory Sync (GCDS) to synchronize the accounts between your enterprise directory and Cloud IAM.
+
+You want to implement account controls that will allow you to grant junior admin users the ability to view details about production clusters and applications, and to be able to fully manage test and lab resources inside your GKE cluster environments. Which account control mechanism will provide you with the level of granular control that is required for this type of user?
+Kubernetes RBAC
+
+What type of account is used by processes in containers in a Pod to communicate with the kube-apiserver running on the Kubernetes cluster master?
+A Kubernetes service account
+

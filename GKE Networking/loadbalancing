@@ -1,0 +1,26 @@
+Managed instance groups:-
+HTTP(S) load balancing:- Layer 7 load balancing(global).
+
+Health checks determine which instances of a load balancer can receive new connections. For HTTP load balancing, the health check probes to your load-balanced instances come from addresses in the ranges 130.211.0.0/22 and 35.191.0.0/16. Your firewall rules must allow these connections.
+
+Cloud CDN content can originate from different types of backends:
+
+Compute Engine virtual machine (VM) instance groups
+Zonal network endpoint groups (NEGs)
+Internet network endpoint groups (NEGs), for endpoints that are outside of Google Cloud (also known as custom origins)
+Google Cloud Storage buckets
+
+HTTP(S) load balancing supports IPv6 clients in addition to IPv4 clients.
+SSL proxy is global and encrypted non HTTP traffic.( SSL proxy load balancing supports IPv6 clients in addition to IPv4 clients.)
+TCP proxy is global and non-encrypted HTTP traffic.(TCP proxy load balancing supports IPv6 clients in addition to IPv4 clients.)
+Network loab balancing is regional load balancing service. traffic is distributed between regional VMs based on IP:port:protocal
+Target pool resource:instances must in the same region. only one health check.
+
+Internal load balancing:- TCP/UDP based load balancer. Only accessed through private IP addresses.
+load between regional VMs.
+
+Cloud NAT service to allow these VM instances to receive incoming traffic only through the Cloud NAT, and return traffic from the outbound NAT through the load balancer.
+
+Which GCP load balancing service supports GCP instance-to-instance RFC 1918 traffic?
+Internal load balancing
+

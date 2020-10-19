@@ -1,0 +1,45 @@
+Routes tell VM instances and the VPC network how to send traffic from an instance to a destination, either inside the network or outside Google Cloud. Each VPC network comes with some default routes to route traffic among its subnets and send traffic from eligible instances to the internet.
+
+VPC networks have an internal DNS service that allows you to address instances by their DNS names instead of their internal IP addresses. This is very useful because the internal IP address can change when you delete and re-create an instance.
+
+icmp-  allow you to pimg.
+
+You can ping the external IP address of all VM instances, even though they are in either a different zone or VPC network. This confirms that public access to those instances is only controlled by the ICMP firewall rules that you established earlier.
+
+""VPC networks are by default isolated private networking domains. However, no internal IP address communication is allowed between networks, unless you set up mechanisms such as VPC peering or VPN.""
+(You cannot ping the internal IP address of managementnet-us-vm and privatenet-us-vm because they are in separate VPC networks from the source of the ping (mynet-us-vm), even though they are all in the same zone, us-central1.)
+
+In a multiple interface instance, every interface gets a route for the subnet that it is in. In addition, the instance gets a single default route that is associated with the primary interface eth0. Unless manually configured otherwise, any traffic leaving an instance for any destination other than a directly connected subnet will leave the instance via the default route on eth0.
+(https://cloud.google.com/vpc/docs/create-use-multiple-interfaces#configuring_policy_routing)
+
+
+In Google Cloud Platform, a VPC network belongs to which of the following?
+Project
+
+The three network types offered by GCP are: default, auto and custom. Each project starts with a default network. The auto-type network uses the same subnet IP ranges as the default-type, with a network name other than default. A custom-type allows you to specify the IP ranges of subnets.
+
+Cloud DNS translates requests for domain names like google.com into external IP addresses
+
+Network Admin: Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+Security Admin: Permissions to create, modify, and delete firewall rules and SSL certificates.
+
+A service account is a special Google account that belongs to your application or a virtual machine, instead of to an individual end user.
+
+What are the three options for the target parameter of a firewall rule that defines the instances to which the firewall rule is intended to apply?
+Selecting All instances in the network, applies the firewall rule to all VMs in the network.
+Selecting Specified service accounts, applies the firewall rule only to VMs that use a specific service account.
+Selecting Specified target tags, applies the firewall rule only to VMs with a matching network tag.
+
+Compute Engine internal DNS names created in a network are not accessible to peered networks. The IP address of the VM should be used to reach the VM instances in peered network.
+
+Steps for provisioning Shared VPC in Google Cloud Platform:
+1.An Organization Admin nominates a Shared VPC Admin.
+2.A Shared VPC Admin enables shared VPC for the host project.
+3.A Shared VPC Admin delegates access to some or all subnets of a shared VPC network by granting the Network User role.
+4.A Network User creates resources in his/her Service Project.
+
+Transitive peering is not supported in VPC Network Peering.
+
+Shared VPC is a centralized approach to multi-project networking, because security and network policy occurs in a single designated VPC network.
+

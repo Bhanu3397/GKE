@@ -1,0 +1,21 @@
+cloud router
+colud vpn
+dedicated interconnect(Dedicated Interconnect requires a connection in a GCP colocation facility and provides 10 Gbps per link.)
+partner interconnect (through 3rd party)
+cloud peering:-Google allows you to establish a direct peering connection between your business network and Google's. With this connection, you'll be able to exchange Internet traffic between your network and Google's at one of Google's broad-reaching edge network locations. Direct peering with Google is done by exchanging BGP routes between Google and the peering entity.
+
+What is the purpose of a Cloud Router and why does that matter?
+Cloud Routers implement dynamic VPN that allows topology to be discovered and shared automatically, which reduces manual static route maintenance.
+
+Design Pattern:-
+same vpc in multiple zones in same region using same subnet.
+Global level:- (Isolation low failure)place resources in multiple zone in same region. use global load balancer.
+global load balancer - web tier - internal tier - db.
+Cloud VPN (internal load balancer).
+Shared vpc with inline security appliance.
+
+Private Instances:-
+Private Google access, Cloud NAT.
+
+qwiklabs-gcp-00-756348a63cb0
+

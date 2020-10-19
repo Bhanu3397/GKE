@@ -48,3 +48,16 @@ Node Selecter does this job.
 
 Affinity and anti-affinity:-
 Node affinity helps controlling pods.
+
+Taints and tolerations:-To taint to node, use the kubectl taint command. The taint has a key with a value and a taint effect.
+GKE automatically labels some nodes and each node pool with the node pool name you supply.
+
+True or false: if the labels on nodes change, affinity and anti-affinity rules will be applied to already-running Pods. false
+
+What is the difference between the taint system and the affinity system?
+Taints apply to nodes, while affinity rules apply to Pods.
+
+Getting software into your cluster:-
+A Kubernetes ConfigMap lets you store and manage configuration artifacts, so that they are decoupled from container-image content.
+
+A Kubernetes Secret, like a ConfigMap, lets you store and manage configuration artifacts, but it's specially intended for sensitive information such as passwords and authorization keys.
